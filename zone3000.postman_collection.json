@@ -1,0 +1,362 @@
+{
+  "info": {
+    "_postman_id": "9316c650-eb2f-4ce1-9dca-8fc0c0442e57",
+    "name": "Zone3000 - Email Classifier API",
+    "description": "REST API for email classification. Accepts .eml files and returns classification status.\n\n**Base URL:** `{{base_url}}`\n\n**Docs:** `{{base_url}}/api/docs`",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "13799625"
+  },
+  "item": [
+    {
+      "name": "Classify",
+      "item": [
+        {
+          "name": "POST /classify — upload .eml file",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// If no file is attached — create a minimal .eml manually (see request description)",
+                  "",
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 201', function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test('Response has required fields', function () {",
+                  "    const json = pm.response.json();",
+                  "    pm.expect(json).to.have.property('id');",
+                  "    pm.expect(json).to.have.property('status');",
+                  "    pm.expect(json).to.have.property('reviewed');",
+                  "});",
+                  "",
+                  "pm.test('Status is pending on creation', function () {",
+                  "    const json = pm.response.json();",
+                  "    pm.expect(json.status).to.eql('pending');",
+                  "});",
+                  "",
+                  "pm.test('reviewed is false on creation', function () {",
+                  "    const json = pm.response.json();",
+                  "    pm.expect(json.reviewed).to.eql(false);",
+                  "});",
+                  "",
+                  "pm.test('id is a valid UUID', function () {",
+                  "    const json = pm.response.json();",
+                  "    const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;",
+                  "    pm.expect(json.id).to.match(uuidRegex);",
+                  "});",
+                  "",
+                  "// Save id for subsequent requests",
+                  "const json = pm.response.json();",
+                  "if (json && json.id) {",
+                  "    pm.collectionVariables.set('created_email_id', json.id);",
+                  "    console.log('Saved email id:', json.id);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": "Upload an .eml file. For a quick test use any file from the test_samples/ folder.",
+                  "value": null
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/classify/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "classify",
+                ""
+              ]
+            },
+            "description": "Uploads an .eml file and creates a classification record.\n\n**How to use:**\n1. Click the `file` field → Select Files\n2. Pick any `.eml` file\n3. Click Send\n\nNo .eml file? Create one manually:\n```\ncat > test_samples/sample.eml << 'EOF'\nFrom: sender@example.com\nTo: receiver@example.com\nSubject: Test email\nDate: Mon, 19 May 2026 10:00:00 +0000\nMIME-Version: 1.0\nContent-Type: text/plain; charset=utf-8\n\nThis is a test email body.\nEOF\n```\n\n**Response 201 (new file):**\n```json\n{\n  \"id\": \"uuid\",\n  \"status\": \"pending\",\n  \"category\": null,\n  \"confidence\": null,\n  \"reasoning\": null,\n  \"signals\": null,\n  \"reviewed\": false\n}\n```\n\n**Response 200 (duplicate — same SHA-256):** returns the existing record."
+          },
+          "response": [
+            {
+              "name": "201 — Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "file",
+                      "type": "file",
+                      "src": [
+                        "sample.eml"
+                      ]
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/v1/classify/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "classify",
+                    ""
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n  \"status\": \"pending\",\n  \"category\": null,\n  \"confidence\": null,\n  \"reasoning\": null,\n  \"signals\": null,\n  \"reviewed\": false\n}"
+            },
+            {
+              "name": "422 — File missing",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/v1/classify/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "classify",
+                    ""
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"detail\": [\n    {\n      \"type\": \"missing\",\n      \"loc\": [\"body\", \"file\"],\n      \"msg\": \"Field required\",\n      \"input\": null\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "GET /classify/{id} — get classification result",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// Use the id saved after the POST request",
+                  "const id = pm.collectionVariables.get('created_email_id');",
+                  "if (id) {",
+                  "    pm.variables.set('email_id', id);",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Response has all required fields', function () {",
+                  "    const json = pm.response.json();",
+                  "    pm.expect(json).to.have.property('id');",
+                  "    pm.expect(json).to.have.property('status');",
+                  "    pm.expect(json).to.have.property('category');",
+                  "    pm.expect(json).to.have.property('confidence');",
+                  "    pm.expect(json).to.have.property('reasoning');",
+                  "    pm.expect(json).to.have.property('signals');",
+                  "    pm.expect(json).to.have.property('reviewed');",
+                  "});",
+                  "",
+                  "pm.test('Status is one of known values', function () {",
+                  "    const json = pm.response.json();",
+                  "    pm.expect(['pending', 'classified', 'failed']).to.include(json.status);",
+                  "});",
+                  "",
+                  "pm.test('If classified, category and confidence are present', function () {",
+                  "    const json = pm.response.json();",
+                  "    if (json.status === 'classified') {",
+                  "        const validCategories = ['spam', 'phishing', 'newsletter', 'transactional', 'personal', 'automated'];",
+                  "        pm.expect(validCategories).to.include(json.category);",
+                  "        pm.expect(json.confidence).to.be.a('number');",
+                  "        pm.expect(json.confidence).to.be.within(0, 1);",
+                  "        pm.expect(json.signals).to.be.an('array');",
+                  "    }",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/classify/{{created_email_id}}/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "classify",
+                "{{created_email_id}}",
+                ""
+              ]
+            },
+            "description": "Returns current status and classification result by UUID.\n\n`{{created_email_id}}` is populated automatically after the POST request.\n\n**Statuses:**\n- `pending` — waiting to be processed by the classify worker\n- `classified` — classification complete\n- `failed` — processing error (retry worker will reset to pending)\n\n**Response 200 (classified):**\n```json\n{\n  \"id\": \"uuid\",\n  \"status\": \"classified\",\n  \"category\": \"newsletter\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"...\",\n  \"signals\": [\"unsubscribe link\", \"...\"]\n  \"reviewed\": false\n}\n```"
+          },
+          "response": [
+            {
+              "name": "200 — Pending (awaiting worker)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/v1/classify/3fa85f64-5717-4562-b3fc-2c963f66afa6/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "classify",
+                    "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n  \"status\": \"pending\",\n  \"category\": null,\n  \"confidence\": null,\n  \"reasoning\": null,\n  \"signals\": null,\n  \"reviewed\": false\n}"
+            },
+            {
+              "name": "200 — Classified (result ready)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/v1/classify/3fa85f64-5717-4562-b3fc-2c963f66afa6/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "classify",
+                    "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n  \"status\": \"classified\",\n  \"category\": \"newsletter\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"This email is a newsletter subscription with unsubscribe link and curated content.\",\n  \"signals\": [\"unsubscribe link present\", \"sender is newsletter@techdigest.io\", \"structured content\"],\n  \"reviewed\": false\n}"
+            },
+            {
+              "name": "404 — Not Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/v1/classify/00000000-0000-0000-0000-000000000000/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "classify",
+                    "00000000-0000-0000-0000-000000000000",
+                    ""
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"detail\": \"Not Found\"\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000",
+      "type": "string",
+      "description": "Server base URL"
+    },
+    {
+      "key": "created_email_id",
+      "value": "",
+      "type": "string",
+      "description": "UUID of the created email record (set automatically after POST)"
+    }
+  ]
+}

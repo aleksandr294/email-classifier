@@ -1,0 +1,74 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16.0
+    restart: always
+    environment:
+      POSTGRES_DB: zone3000_db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: user
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - network
+
+  api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.api
+    restart: always
+    environment:
+      POSTGRES_URL: postgresql+asyncpg://user:user@db:5432/zone3000_db
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+      LLM_MODEL_NAME: ${LLM_MODEL_NAME}
+    ports:
+      - "8000:8000"
+    volumes:
+      - email_files_data:/app/email_files
+    depends_on:
+      - db
+    networks:
+      - network
+
+  worker-classify:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.classify
+    restart: always
+    environment:
+      POSTGRES_URL: postgresql+asyncpg://user:user@db:5432/zone3000_db
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+      LLM_MODEL_NAME: ${LLM_MODEL_NAME}
+    volumes:
+      - email_files_data:/app/email_files
+    depends_on:
+      - db
+      - api
+    networks:
+      - network
+
+  worker-retry:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.retry
+    restart: always
+    environment:
+      POSTGRES_URL: postgresql+asyncpg://user:user@db:5432/zone3000_db
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+      LLM_MODEL_NAME: ${LLM_MODEL_NAME}
+    depends_on:
+      - db
+      - api
+    networks:
+      - network
+
+networks:
+  network:
+    driver: bridge
+
+volumes:
+  db_data:
+  email_files_data:
