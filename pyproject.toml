@@ -1,5 +1,5 @@
 [project]
-name = "zone3000"
+name = "email-classifier"
 version = "0.1.0"
 description = ""
 authors = [

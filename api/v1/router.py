@@ -29,7 +29,7 @@ def configure(app: fastapi.FastAPI) -> None:
         if app.openapi_schema:
             return app.openapi_schema
         openapi_schema = get_openapi(
-            title="Zone3000",
+            title="Email Classifier",
             version="v1",
             routes=app.routes,
         )

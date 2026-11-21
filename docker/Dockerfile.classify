@@ -1,4 +1,4 @@
-FROM zone3000-base:latest
+FROM email-classifier-base:latest
 
 COPY . .
 
