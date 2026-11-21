@@ -16,6 +16,7 @@ class Config(pydantic_settings.BaseSettings):
 
     CLASSIFY_WORKER_PAUSE_SECONDS: int = 10
     RETRY_WORKER_PAUSE_SECONDS: int = 60 * 10
+    STALE_PROCESSING_MINUTES: int = 15
 
     BASE_DIR: Path = Path(__file__).resolve().parent.parent.parent
     FILES_FOLDER: str = "email_files"

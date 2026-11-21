@@ -3,6 +3,7 @@ import enum
 
 class EmailStatus(enum.StrEnum):
     PENDING = "pending"
+    PROCESSING = "processing"
     CLASSIFIED = "classified"
     FAILED = "failed"
 

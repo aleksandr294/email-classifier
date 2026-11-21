@@ -1,5 +1,14 @@
 MIN_CONFIDENCE_VALUE = 0.6
 MAX_EMAIL_BODY_CHARS = 20_000
+PROMPT_HEADERS = (
+    "Reply-To",
+    "Return-Path",
+    "Sender",
+    "List-Unsubscribe",
+    "Auto-Submitted",
+    "Precedence",
+    "X-Mailer",
+)
 
 SPAM_EML = (
     b"From: spammer@cheap-deals.xyz\r\n"

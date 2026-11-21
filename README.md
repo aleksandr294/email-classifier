@@ -25,13 +25,15 @@ POST /classify/
                 │
                 ▼
     [classify worker — polls every N seconds]
-        ├── fetch one pending record (SELECT ... FOR UPDATE SKIP LOCKED)
+        ├── claim one pending record (SELECT ... FOR UPDATE SKIP LOCKED → status=processing, commit)
+        │   (no DB transaction is held during the LLM call)
         ├── parse .eml → call Anthropic Claude (tool use)
         ├── confidence ≥ 0.6  →  status=classified
         └── confidence < 0.6  →  status=pending, retry → status=classified, reviewed=true
                 │
     [retry worker — polls every 10 min]
-        └── reset failed → pending for re-processing
+        ├── reset failed → pending for re-processing
+        └── reset stale processing (worker crash, > STALE_PROCESSING_MINUTES) → pending
 ```
 
 **Why async over synchronous classification:**
