@@ -1,0 +1,12 @@
+From: Monitoring <alerts@monitor.example>
+To: dev@example.com
+Subject: [ALERT] CPU > 90% on web-03
+Date: Sat, 24 Jan 2026 07:30:00 +0000
+Message-ID: <c1d3fcff2a3af4d4@example.com>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+
+Host web-03 CPU usage 94% for 10 minutes.
+Threshold: 90%. Dashboard: https://monitor.example/h/web-03

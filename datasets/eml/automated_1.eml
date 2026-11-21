@@ -1,0 +1,16 @@
+From: CI Bot <noreply@ci.example>
+To: dev@example.com
+Subject: [CI] Build #1042 failed on main
+Date: Fri, 16 Jan 2026 22:30:00 +0000
+Message-ID: <830e07bc1e398f10@example.com>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+
+Pipeline #1042 for branch main failed.
+Stage: test
+Job: pytest (exit code 1)
+See logs: https://ci.example/jobs/1042
+
+This is an automated message, do not reply.

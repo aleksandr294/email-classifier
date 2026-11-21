@@ -1,0 +1,17 @@
+From: Account Security <security@acc0unt-verify.example>
+To: victim@example.com
+Subject: Urgent: verify your account
+Date: Fri, 16 Jan 2026 22:30:00 +0000
+Message-ID: <892f902bd23f0824@example.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Dear customer,
+
+We detected unusual activity on your account. Your account will be suspended =
+in 24 hours unless you verify your identity.
+
+Verify now: http://acc0unt-verify.example/login?id=3D88213
+
+Security Team

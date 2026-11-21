@@ -1,0 +1,12 @@
+From: GitHub <notifications@github.example>
+To: dev@example.com
+Subject: [repo] Dependabot: bump requests from 2.31 to 2.32
+Date: Sun, 25 Jan 2026 19:30:00 +0000
+Message-ID: <a097c976bf46c69@example.com>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Dependabot opened pull request #88. Bumps requests from 2.31.0 to 2.32.0. Thi=
+s is an automated notification.

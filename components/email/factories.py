@@ -20,6 +20,7 @@ class EmailFactory(SQLAlchemyModelFactory):
     reasoning = None
     signals = None
     reviewed = False
+    injection_detected = False
 
     class Params:
         classified = factory.Trait(

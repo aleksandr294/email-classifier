@@ -1,0 +1,11 @@
+From: Airline <booking@flyair.example>
+To: me@example.com
+Subject: Booking confirmation XK7L2P
+Date: Mon, 26 Jan 2026 13:30:00 +0000
+Message-ID: <e00902c77ebff206@example.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+
+Your flight KBP -> WAW on Feb 3, 07:45 is confirmed.
+Booking reference: XK7L2P. Check-in opens 24h before departure.

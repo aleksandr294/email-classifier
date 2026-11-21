@@ -1,0 +1,33 @@
+From: TechWeekly <news@techweekly.example>
+To: me@example.com
+Subject: TechWeekly #212: this week in AI
+Date: Sun, 25 Jan 2026 23:30:00 +0000
+Message-ID: <881ed162ae2eb154@example.com>
+List-Unsubscribe: <https://techweekly.example/unsub>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="===============2507878458152267556=="
+
+--===============2507878458152267556==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+TechWeekly #212: this week in AI
+
+1. New open-source LLM released
+2. Python 3.14 highlights
+3. Cloud pricing changes
+
+You are receiving this because you subscribed. Unsubscribe: https://techweekl=
+y.example/unsub
+
+--===============2507878458152267556==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<h1>TechWeekly #212: this week in AI</h1><ol><li>New open-source LLM released=
+</li><li>Python 3.14 highlights</li><li>Cloud pricing changes</li></ol><p><a =
+href=3D'https://techweekly.example/unsub'>Unsubscribe</a></p>
+
+--===============2507878458152267556==--

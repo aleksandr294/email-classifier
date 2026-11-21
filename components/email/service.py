@@ -3,7 +3,7 @@ import pathlib
 from sqlalchemy.ext import asyncio as sa_asyncio
 
 from components.email import models as classify_models
-from components.email.constants import MIN_CONFIDENCE_VALUE
+from components.email.constants import MAX_EMAIL_BODY_CHARS, MIN_CONFIDENCE_VALUE
 from components.email.enums import EmailStatus
 from components.email.parser import EmailParser
 from components.email.repository import EmailRepository
@@ -45,7 +45,8 @@ class ClassifyEmailService:
     ) -> classify_models.Email:
 
         is_second_pass = email.category is not None
-        high_confidence = result.confidence >= MIN_CONFIDENCE_VALUE
+        # emails with a detected injection attempt always go through a second (review) pass
+        high_confidence = result.confidence >= MIN_CONFIDENCE_VALUE and not result.injection_detected
 
         email.status = EmailStatus.CLASSIFIED if (high_confidence or is_second_pass) else EmailStatus.PENDING
         email.reviewed = is_second_pass
@@ -53,6 +54,7 @@ class ClassifyEmailService:
         email.confidence = result.confidence
         email.reasoning = result.reasoning
         email.signals = result.signals
+        email.injection_detected = result.injection_detected
         await conn.commit()
         # await conn.refresh(email)
         return email
@@ -68,8 +70,8 @@ class ClassifyEmailService:
         if parsed.subject:
             lines.append(f"Subject: {parsed.subject}")
         lines.append("")
-        if parsed.body_plain:
-            lines.append(parsed.body_plain)
-        elif parsed.body_html:
-            lines.append(parsed.body_html)
-        return "\n".join(lines)
+        body = parsed.body_plain or parsed.body_html
+        if body:
+            lines.append(body[:MAX_EMAIL_BODY_CHARS])
+        content = "\n".join(lines).replace("</email>", "<\\/email>")
+        return f"<email>\n{content}\n</email>"

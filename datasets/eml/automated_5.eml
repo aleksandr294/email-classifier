@@ -1,0 +1,12 @@
+From: Calendar <calendar-noreply@cal.example>
+To: dev@example.com
+Subject: Reminder: Standup at 10:00
+Date: Wed, 04 Feb 2026 21:30:00 +0000
+Message-ID: <13deef86ab1031d0@example.com>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Event: Daily standup. Time: 10:00-10:15 UTC. Join: https://meet.example/stand=
+up. Automatically generated reminder.

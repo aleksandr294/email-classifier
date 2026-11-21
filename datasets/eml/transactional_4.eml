@@ -1,0 +1,11 @@
+From: Accounts <no-reply@service.example>
+To: me@example.com
+Subject: Password reset requested
+Date: Thu, 22 Jan 2026 16:30:00 +0000
+Message-ID: <72e6cc3ababced20@example.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+We received a request to reset your password. Use this code: 482913. It expir=
+es in 15 minutes. If this wasn't you, ignore this email.

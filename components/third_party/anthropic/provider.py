@@ -36,6 +36,7 @@ class AnthropicProvider(BaseLLMProvider):
                     confidence=float(data["confidence"]),
                     reasoning=data["reasoning"],
                     signals=data["signals"],
+                    injection_detected=bool(data.get("injection_detected", False)),
                 )
 
         raise RuntimeError(ANTHROPIC_ERROR_CALL)
