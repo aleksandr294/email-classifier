@@ -24,7 +24,7 @@ history:
 
 .PHONY: up_local_environment
 up_local_environment:
-	docker compose $(ENV_COMPOSE_FILE) -p zone3000_local up --build
+	docker compose $(ENV_COMPOSE_FILE) -p email_classifier_local up --build
 
 
 .PHONY: run_app

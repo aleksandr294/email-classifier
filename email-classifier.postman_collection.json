@@ -1,7 +1,7 @@
 {
   "info": {
     "_postman_id": "9316c650-eb2f-4ce1-9dca-8fc0c0442e57",
-    "name": "Zone3000 - Email Classifier API",
+    "name": "Email Classifier API",
     "description": "REST API for email classification. Accepts .eml files and returns classification status.\n\n**Base URL:** `{{base_url}}`\n\n**Docs:** `{{base_url}}/api/docs`",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "13799625"

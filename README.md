@@ -53,8 +53,8 @@ The current worker uses DB polling (`SELECT FOR UPDATE SKIP LOCKED`), which is s
 1. **Clone repository:**
 
    ```
-   git clone git@github.com:aleksandr294/zone3000.git
-   cd zone3000
+   git clone git@github.com:aleksandr294/email-classifier.git
+   cd email-classifier
    ```
 
 2. **Install Poetry:**
@@ -111,7 +111,7 @@ The current worker uses DB polling (`SELECT FOR UPDATE SKIP LOCKED`), which is s
 ## Run full stack (API + workers + PostgreSQL)
 
 ```
-docker build -f docker/Dockerfile.base -t zone3000-base:latest . && docker compose -f docker-compose.yml -p zone3000-system up --build
+docker build -f docker/Dockerfile.base -t email-classifier-base:latest . && docker compose -f docker-compose.yml -p email-classifier-system up --build
 ```
 
 ## API
