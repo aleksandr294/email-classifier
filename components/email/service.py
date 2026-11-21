@@ -5,7 +5,7 @@ from sqlalchemy.ext import asyncio as sa_asyncio
 
 from components.email import models as classify_models
 from components.email.constants import MAX_EMAIL_BODY_CHARS, MIN_CONFIDENCE_VALUE, PROMPT_HEADERS
-from components.email.sanitize import sanitize_text_tree
+from components.email.utils import sanitize_text_tree
 from components.email.enums import EmailStatus
 from components.email.parser import EmailParser
 from components.email.repository import EmailRepository
