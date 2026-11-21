@@ -1,0 +1,16 @@
+From: Shop <orders@shop.example>
+To: me@example.com
+Subject: Your order #48213 has shipped
+Date: Wed, 28 Jan 2026 19:30:00 +0000
+Message-ID: <953f48f1a09f76b5@example.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+
+Hello,
+
+Your order #48213 (1x Mechanical Keyboard, total $89.00) has shipped.
+Tracking number: 1Z999AA10123456784
+Estimated delivery: Jan 20.
+
+Thank you for your purchase!
