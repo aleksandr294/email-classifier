@@ -1,18 +1,18 @@
-From: Weekly Digest <news@techweekly.example>
+From: TechWeekly <news@techweekly.example>
 To: me@example.com
 Subject: TechWeekly #212: this week in AI
-Date: Sun, 18 Jan 2026 00:30:00 +0000
-Message-ID: <39263059f28c105d@example.com>
+Date: Sun, 25 Jan 2026 23:30:00 +0000
+Message-ID: <881ed162ae2eb154@example.com>
 List-Unsubscribe: <https://techweekly.example/unsub>
 MIME-Version: 1.0
 Content-Type: multipart/alternative;
- boundary="===============2280064249044105361=="
+ boundary="===============2507878458152267556=="
 
---===============2280064249044105361==
+--===============2507878458152267556==
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: quoted-printable
 
-TechWeekly #212
+TechWeekly #212: this week in AI
 
 1. New open-source LLM released
 2. Python 3.14 highlights
@@ -21,13 +21,13 @@ TechWeekly #212
 You are receiving this because you subscribed. Unsubscribe: https://techweekl=
 y.example/unsub
 
---===============2280064249044105361==
+--===============2507878458152267556==
 Content-Type: text/html; charset="utf-8"
 Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 
-<h1>TechWeekly #212</h1><ol><li>New open-source LLM</li><li>Python 3.14</li><=
-li>Cloud pricing</li></ol><p><a href=3D'https://techweekly.example/unsub'>Uns=
-ubscribe</a></p>
+<h1>TechWeekly #212: this week in AI</h1><ol><li>New open-source LLM released=
+</li><li>Python 3.14 highlights</li><li>Cloud pricing changes</li></ol><p><a =
+href=3D'https://techweekly.example/unsub'>Unsubscribe</a></p>
 
---===============2280064249044105361==--
+--===============2507878458152267556==--

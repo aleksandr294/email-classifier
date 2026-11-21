@@ -1,0 +1,33 @@
+From: DevDigest <hello@devdigest.example>
+To: me@example.com
+Subject: DevDigest: 10 tips for faster builds
+Date: Sun, 25 Jan 2026 07:30:00 +0000
+Message-ID: <ec66a78795e761d1@example.com>
+List-Unsubscribe: <https://devdigest.example/unsub>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="===============4663149595894833668=="
+
+--===============4663149595894833668==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+DevDigest: 10 tips for faster builds
+
+1. Caching dependencies
+2. Parallel test runs
+3. Slimmer Docker images
+
+You are receiving this because you subscribed. Unsubscribe: https://devdigest=
+.example/unsub
+
+--===============4663149595894833668==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<h1>DevDigest: 10 tips for faster builds</h1><ol><li>Caching dependencies</li=
+><li>Parallel test runs</li><li>Slimmer Docker images</li></ol><p><a href=3D'=
+https://devdigest.example/unsub'>Unsubscribe</a></p>
+
+--===============4663149595894833668==--

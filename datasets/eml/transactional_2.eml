@@ -1,0 +1,11 @@
+From: Billing <billing@saas.example>
+To: me@example.com
+Subject: Receipt for your payment
+Date: Sat, 17 Jan 2026 02:30:00 +0000
+Message-ID: <4cdd2055930d6eaf@example.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+
+Thanks for your payment of $29.00 for the Pro plan (Jan 2026).
+Invoice #INV-20931 is attached to your account.

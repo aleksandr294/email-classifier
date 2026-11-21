@@ -1,0 +1,11 @@
+From: Cron <root@server.example>
+To: dev@example.com
+Subject: Cron <root@srv1> /usr/local/bin/backup.sh
+Date: Thu, 22 Jan 2026 16:30:00 +0000
+Message-ID: <eeeacbe226e87555@example.com>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+
+Backup completed: 12.4 GB, duration 00:14:32, status OK.

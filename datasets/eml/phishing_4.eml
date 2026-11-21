@@ -1,0 +1,12 @@
+From: Bank Alert <alert@secure-bank-login.example>
+To: victim@example.com
+Subject: Suspicious sign-in detected
+Date: Mon, 19 Jan 2026 22:30:00 +0000
+Message-ID: <1600a35a099950d8@example.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+We blocked a sign-in to your online banking from an unknown device (Lagos, NG=
+). If this was not you, confirm your username, password and one-time code her=
+e: http://secure-bank-login.example/verify

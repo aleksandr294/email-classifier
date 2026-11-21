@@ -1,0 +1,33 @@
+From: Morning Brief <brief@morningbrief.example>
+To: me@example.com
+Subject: The Morning Brief - Nov 21
+Date: Sat, 24 Jan 2026 11:30:00 +0000
+Message-ID: <506bf2efc6f87718@example.com>
+List-Unsubscribe: <https://morningbrief.example/unsub>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="===============0394119682120371003=="
+
+--===============0394119682120371003==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+The Morning Brief - Nov 21
+
+1. Markets open higher
+2. Climate summit update
+3. Five stories you missed
+
+You are receiving this because you subscribed. Unsubscribe: https://morningbr=
+ief.example/unsub
+
+--===============0394119682120371003==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<h1>The Morning Brief - Nov 21</h1><ol><li>Markets open higher</li><li>Climat=
+e summit update</li><li>Five stories you missed</li></ol><p><a href=3D'https:=
+//morningbrief.example/unsub'>Unsubscribe</a></p>
+
+--===============0394119682120371003==--

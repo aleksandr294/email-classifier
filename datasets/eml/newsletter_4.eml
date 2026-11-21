@@ -1,0 +1,33 @@
+From: Cooking Club <club@cookingclub.example>
+To: me@example.com
+Subject: Cooking Club: autumn recipes
+Date: Sun, 25 Jan 2026 01:30:00 +0000
+Message-ID: <4cbd87ad5c90a958@example.com>
+List-Unsubscribe: <https://cookingclub.example/unsub>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="===============7696116000213038449=="
+
+--===============7696116000213038449==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Cooking Club: autumn recipes
+
+1. Pumpkin soup
+2. Apple crumble
+3. One-pan chicken
+
+You are receiving this because you subscribed. Unsubscribe: https://cookingcl=
+ub.example/unsub
+
+--===============7696116000213038449==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<h1>Cooking Club: autumn recipes</h1><ol><li>Pumpkin soup</li><li>Apple crumb=
+le</li><li>One-pan chicken</li></ol><p><a href=3D'https://cookingclub.example=
+/unsub'>Unsubscribe</a></p>
+
+--===============7696116000213038449==--

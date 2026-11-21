@@ -1,0 +1,12 @@
+From: IT Helpdesk <it-support@corp-mail-reset.example>
+To: victim@example.com
+Subject: Password expires today
+Date: Fri, 16 Jan 2026 14:30:00 +0000
+Message-ID: <81e74ef5e8e25d94@example.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Your corporate email password expires today. Log in to keep your current pass=
+word: http://corp-mail-reset.example/owa
+Failure to do so will result in loss of mailbox access.

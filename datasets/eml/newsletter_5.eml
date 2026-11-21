@@ -1,0 +1,33 @@
+From: Design Notes <editor@designnotes.example>
+To: me@example.com
+Subject: Design Notes Monthly
+Date: Tue, 20 Jan 2026 16:30:00 +0000
+Message-ID: <2e05319acb5c7427@example.com>
+List-Unsubscribe: <https://designnotes.example/unsub>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="===============3049743979598741838=="
+
+--===============3049743979598741838==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Design Notes Monthly
+
+1. Typography trends
+2. Dark mode done right
+3. Interview: a product designer
+
+You are receiving this because you subscribed. Unsubscribe: https://designnot=
+es.example/unsub
+
+--===============3049743979598741838==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<h1>Design Notes Monthly</h1><ol><li>Typography trends</li><li>Dark mode done=
+ right</li><li>Interview: a product designer</li></ol><p><a href=3D'https://d=
+esignnotes.example/unsub'>Unsubscribe</a></p>
+
+--===============3049743979598741838==--
