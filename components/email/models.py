@@ -15,3 +15,4 @@ class Email(models.BaseModel):
     reasoning = sa.Column(sa.Text, nullable=True)
     signals = sa.Column(sa.JSON, nullable=True)
     reviewed = sa.Column(sa.Boolean, nullable=False, default=False)
+    injection_detected = sa.Column(sa.Boolean, nullable=False, default=False, server_default=sa.false())

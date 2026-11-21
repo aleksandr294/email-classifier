@@ -14,6 +14,7 @@ class EmailRetrieveSchema(pydantic.BaseModel):
     reasoning: typing.Optional[str]
     signals: typing.Optional[list[str]]
     reviewed: bool
+    injection_detected: bool = False
 
     model_config = pydantic.ConfigDict(from_attributes=True)
 
@@ -31,6 +32,7 @@ class EmailDetailSchema(pydantic.BaseModel):
     reasoning: typing.Optional[str]
     signals: typing.Optional[list[str]]
     reviewed: bool
+    injection_detected: bool = False
 
     model_config = pydantic.ConfigDict(from_attributes=True)
 
@@ -40,6 +42,7 @@ class ClassificationResultSchema(pydantic.BaseModel):
     confidence: float
     reasoning: str
     signals: list[str]
+    injection_detected: bool = False
 
 
 class AttachmentSchema(pydantic.BaseModel):

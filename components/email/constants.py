@@ -1,4 +1,5 @@
 MIN_CONFIDENCE_VALUE = 0.6
+MAX_EMAIL_BODY_CHARS = 20_000
 
 SPAM_EML = (
     b"From: spammer@cheap-deals.xyz\r\n"
