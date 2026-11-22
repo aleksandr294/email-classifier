@@ -3,6 +3,7 @@ import uuid
 
 import pydantic
 import sqlalchemy as sa
+from sqlalchemy import exc as sa_exc
 from sqlalchemy.ext import asyncio as sa_asyncio
 
 from components.core import database
@@ -56,13 +57,24 @@ class BaseRepository:
     async def get_or_create(
         self, data: typing.Any, conn: sa_asyncio.AsyncSession, conditional: typing.Any
     ) -> typing.Tuple[database.Base, bool]:
-        query = sa.select(self.model).where(conditional)
-        result = await conn.execute(query)
+        instance = await self._find(conditional, conn)
+        if instance:
+            return instance, False
 
-        instance = result.scalar_one_or_none()
-        if not instance:
-            instance = self.model(**data.model_dump())
-            conn.add(instance)
-            return instance, True
+        instance = self.model(**data.model_dump())
+        try:
+            # The savepoint keeps the outer transaction usable if a concurrent request wins the unique-key race.
+            async with conn.begin_nested():
+                conn.add(instance)
+                await conn.flush()
+        except sa_exc.IntegrityError:
+            existing = await self._find(conditional, conn)
+            if existing is None:
+                raise
+            return existing, False
 
-        return instance, False
+        return instance, True
+
+    async def _find(self, conditional: typing.Any, conn: sa_asyncio.AsyncSession) -> typing.Optional[database.Base]:
+        result = await conn.execute(sa.select(self.model).where(conditional))
+        return result.scalar_one_or_none()

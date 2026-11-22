@@ -29,6 +29,10 @@ async def run(db: DatabaseMngr = DatabaseMngr.get_db(), email_repo: EmailReposit
                 await conn.commit()
                 if emails:
                     logger.info(f"Reset {len(emails)} emails to pending")
+
+                stale = await email_repo.reset_stale_processing(conn, config.STALE_PROCESSING_MINUTES)
+                if stale:
+                    logger.info(f"Returned {stale} stale processing emails to pending")
         except Exception:
             logger.exception("Worker error")
 

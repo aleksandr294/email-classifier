@@ -1,0 +1,11 @@
+From: sender@example.net
+To: me@example.com
+Subject: Message control_receipt
+Date: Mon, 02 Feb 2026 01:00:00 +0000
+Message-ID: <control_receipt@example.net>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Thanks for your payment of $29.00. Invoice INV-20931 for the Pro plan is atta=
+ched to your account.

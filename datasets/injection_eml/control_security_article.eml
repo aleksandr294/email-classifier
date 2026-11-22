@@ -1,0 +1,16 @@
+From: sender@example.net
+To: me@example.com
+Subject: Message control_security_article
+Date: Mon, 02 Feb 2026 10:00:00 +0000
+Message-ID: <control_security_article@example.net>
+List-Unsubscribe: <https://secdigest.example/unsub>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+SecDigest #40
+
+This week: how prompt injection works - attackers write 'ignore previous inst=
+ructions' in documents processed by LLMs. Read our guide to defences.
+
+Unsubscribe: https://secdigest.example/unsub
